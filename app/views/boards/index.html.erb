@@ -1,10 +1,8 @@
-<h1>Bru's Boards</h1>
+<h1>Bru Boards</h1>
 
 <% @boards.each do |board| %>
 	<p>
-		<%= board.name %>
-		<%= board.description %>
-		<%= board.private %>
+		<strong><%= link_to board.name, user_board_path(@user, board) %></strong>
 	</p>
 <% end %>
 

@@ -1,7 +1,7 @@
 class BoardsController < ApplicationController
 	def index
 		@user = current_user
-  	@boards = @user.boards.order(:name)
+  	@boards = Board.order(:name)
 	end
 
 	def create
@@ -21,7 +21,10 @@ class BoardsController < ApplicationController
 	end
 
 	def show
-		@board = Board.find(params[:id]) 
+		@user = current_user
+		@board = Board.find(params[:id])
+		@board.user = @user
+		# @pin.board = 
 	end
 
 	def update
@@ -47,6 +50,6 @@ class BoardsController < ApplicationController
 	private
 
 	def board_params
-		params.require(:board).permit(:name, :description, :private)
+		params.require(:board).permit(:name, :description, :private, :user_id)
 	end
 end
