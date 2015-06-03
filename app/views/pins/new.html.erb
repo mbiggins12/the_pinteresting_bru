@@ -1,0 +1,10 @@
+<h1>Create a Pin</h1>
+
+<%= simple_form_for @pin do |f| %>
+  <%= f.input :title, label: 'Your title please' %>
+  <%= f.input :description, placeholder: "What's in your pin..." %>
+  <%= f.input :image, placeholder: "What's the url..." %>
+  <%= f.button :submit %>
+<% end %>
+
+<%= link_to "Back to Pins", pins_path %>

@@ -1,0 +1,8 @@
+<%= simple_form_for :board, url: user_boards_path(@user) do |f| %>
+  <%= f.input :name, label: 'Your title please' %>
+  <%= f.input :description, placeholder: "What's on your board..." %>
+  <%= f.input :private, as: :boolean, boolean_style: :inline %>
+  <%= f.button :submit %>
+<% end %>
+
+<%= link_to "Back to Boards", user_boards_path %>
